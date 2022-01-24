@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const skillSchema = new mongoose.Schema({
-    skill: {type: String},
-    level: {type: String}
+    skill: String,
+    level: String
 },{ timestamps: true });
 
 const Skill = mongoose.model('Skill', skillSchema);
