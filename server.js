@@ -4,7 +4,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
-const skillsRouter = require('./controllers/skills');
 const skillsController = require('./controllers/skills');
 const app = express();
 require('dotenv').config();
@@ -23,9 +22,9 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 // =======================================
 //              MIDDLEWARE
 // =======================================
-app.use(express.json());
 app.use(morgan('dev'));
-app.use('/api/skills', skillsRouter);
+app.use(express.json());
+app.use('/api/skills', skillsController);
 // =======================================
 //              APP LISTENER
 // =======================================
