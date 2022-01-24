@@ -11,15 +11,15 @@ const Skill = require('../models/skill');
 //ROUTES
 
 //Index
-skillsRouter.get('/api/skills', (req, res) => {
-    Skill.find({}, (err, allSkills) => {
-        res.json(skills)
+skillsRouter.get('/', (req, res) => {
+    Skill.find({}, (err, skills) => {
+        res.json(skills);
     });
 });
 //Create
 skillsRouter.post('/', (req, res) => {
-    Skill.create(req.body, (err, createdSkill) => {
-        res.json('/api/skills')
+    Skill.create(req.body, (err, skill) => {
+        res.json(skill);
     });
 });
 
