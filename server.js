@@ -4,6 +4,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
+const cors = require('cors');
 const skillsController = require('./controllers/skills');
 const app = express();
 require('dotenv').config();
@@ -24,6 +25,7 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 // =======================================
 app.use(morgan('dev'));
 app.use(express.json());
+app.use(cors());
 app.use('/api/skills', skillsController);
 // =======================================
 //              APP LISTENER
